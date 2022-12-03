@@ -52,12 +52,12 @@ MonoBehaviour:
     - {fileID: 21300000, guid: e63ed97cb861d374a9bba4542d0ba058, type: 3}
   - m_CornerType: 5
     m_Sprites:
-    - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+    - {fileID: 21300000, guid: 23351621abd7ca741a600bc859787c90, type: 3}
   - m_CornerType: 6
     m_Sprites:
-    - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+    - {fileID: 21300000, guid: 97b3a137ed044824396953a1546221d5, type: 3}
   - m_CornerType: 7
     m_Sprites:
-    - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+    - {fileID: 21300000, guid: c85c5a73b243b244ea147e92eb98fa55, type: 3}
   m_FillOffset: 0.064
   m_UseSpriteBorders: 1
