@@ -6,8 +6,14 @@ using UnityEngine.InputSystem;
 public class Lever : MonoBehaviour
 {
     public GameObject door;
+    public Animator anim;
 
     private bool canInteract;
+
+    private void Start() {
+        anim.SetBool("isLeft", true);
+        anim.SetBool("isRight", false);
+    }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")) {
@@ -23,8 +29,12 @@ public class Lever : MonoBehaviour
 
     public void pullLever(InputAction.CallbackContext ctx) {
         if(ctx.performed && canInteract && door.activeInHierarchy) {
+            anim.SetBool("isLeft", false);
+            anim.SetBool("isRight", true);
             door.SetActive(false);
         } else if(ctx.performed && canInteract && !door.activeInHierarchy) {
+            anim.SetBool("isLeft", true);
+            anim.SetBool("isRight", false);
             door.SetActive(true);
         }
     }
