@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour {
     // Animator
     public Animator anim;
 
+    // Checkpoint system
+    public Transform respawnPosition;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
