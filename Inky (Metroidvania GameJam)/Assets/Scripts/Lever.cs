@@ -13,6 +13,8 @@ public class Lever : MonoBehaviour
     private void Start() {
         anim.SetBool("isLeft", true);
         anim.SetBool("isRight", false);
+        anim.SetBool("switchLeft", false);
+        anim.SetBool("switchRight", false);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -30,8 +32,14 @@ public class Lever : MonoBehaviour
     public void pullLever(InputAction.CallbackContext ctx) {
         if(ctx.performed && canInteract && door.activeInHierarchy) {
             anim.SetBool("isLeft", false);
-            anim.SetBool("isRight", true);
+            anim.SetTrigger("switchRight");
+            while (!anim.IsInTransition(0))
+            {
+                anim.SetBool("isRight", true);
+                
+            }
             door.SetActive(false);
+            
         } else if(ctx.performed && canInteract && !door.activeInHierarchy) {
             anim.SetBool("isLeft", true);
             anim.SetBool("isRight", false);
