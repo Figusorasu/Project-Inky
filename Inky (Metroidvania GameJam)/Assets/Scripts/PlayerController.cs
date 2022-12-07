@@ -130,10 +130,10 @@ public class PlayerController : MonoBehaviour {
             jumpTimeCounter = jumpTime;
             rb.velocity = Vector2.up * jumpForce;
         }
-        if(ctx.started && !isGrounded && extraJumpsValue > 0) {
+        /*if(ctx.started && !isGrounded && extraJumpsValue > 0) {
             rb.velocity = Vector2.up * jumpForce;
             extraJumpsValue--;
-        }
+        }*/
 
         if(ctx.performed && isJumping) {
             if (jumpTimeCounter > 0) {
