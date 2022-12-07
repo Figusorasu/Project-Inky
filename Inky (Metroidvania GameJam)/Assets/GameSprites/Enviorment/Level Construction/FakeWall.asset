@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7181f404f1447c0a7a17b3070b952b, type: 3}
   m_Name: FakeWall
   m_EditorClassIdentifier: 
-  m_Angles: []
+  m_Angles:
+  - m_Start: -103
+    m_End: -80
+    m_Order: 0
+    m_Sprites:
+    - {fileID: 1140141421, guid: 8edcb873459f1754e806a656a759a6e3, type: 3}
+  - m_Start: 75
+    m_End: 96
+    m_Order: 0
+    m_Sprites:
+    - {fileID: 1140141421, guid: 8edcb873459f1754e806a656a759a6e3, type: 3}
   m_FillTexture: {fileID: 2800000, guid: 201e71cdf5dc23943b5eecbb87f700fa, type: 3}
   m_CornerSprites:
   - m_CornerType: 0

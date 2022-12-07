@@ -14,14 +14,14 @@ public class FakeWall : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")) {
-            wall.SetActive(false);
+            wall.GetComponent<Animator>().SetBool("isOff", true);
             turnOnLanterns();
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if(other.CompareTag("Player")) {
-            wall.SetActive(true);
+            wall.GetComponent<Animator>().SetBool("isOff", false);
             turnOffLanterns();
         }
     }
