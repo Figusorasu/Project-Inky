@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour {
     public float checkRadius;
     public int extraJumps;
     private int extraJumpsValue;
-    public float gravScale;
 
     private bool isFalling;
 

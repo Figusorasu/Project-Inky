@@ -9,10 +9,12 @@ public class CameraRegion : MonoBehaviour
     public Vector2 camMaxPos;
     public Vector2 camMinPos;
 
-    private void OnTriggerStay2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")) {
+            Debug.Log("CamPos: "+ camMaxPos + ", " + camMinPos);
             cam.maxPosition = camMaxPos;
             cam.minPosition = camMinPos;
+            Debug.Log("Pozycja zmieniona");
         }
     }
     
