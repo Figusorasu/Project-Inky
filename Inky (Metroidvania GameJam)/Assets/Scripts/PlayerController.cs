@@ -22,17 +22,13 @@ public class PlayerController : MonoBehaviour {
     private int extraJumpsValue;
     public float gravScale;
 
+    private bool isFalling;
+
     // Ground Detection
     public LayerMask whatIsGround; // Unity layer with objects that are ground
     public LayerMask whatIsPlatform;
     public bool isGrounded;
     public bool isOnPlatform;
-
-    // Ladders
-    public LayerMask whatIsLadder;
-    public bool canClimbLadder;
-    public bool isClimbing = false;
-    
 
     // Animator
     public Animator anim;
@@ -53,6 +49,7 @@ public class PlayerController : MonoBehaviour {
         // Renew jumps
         if(isGrounded) {
             extraJumpsValue = extraJumps;
+            isFalling = false;
         }
 
         // Flip Player
@@ -128,8 +125,9 @@ public class PlayerController : MonoBehaviour {
             extraJumpsValue--;
         }
         
-        if(ctx.canceled) {
+        if(ctx.canceled && !isFalling) {
             rb.velocity = new Vector2(rb.velocity.x, 0);
+            isFalling = true;
         }
     }
     

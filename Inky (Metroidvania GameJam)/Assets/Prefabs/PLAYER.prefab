@@ -73,7 +73,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0014767051, y: -0.24852753}
+  m_Offset: {x: -0.0068798065, y: -0.24852753}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -84,7 +84,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6883737, y: 0.69867706}
+  m_Size: {x: 0.5462761, y: 0.69867706}
   m_EdgeRadius: 0.1
 --- !u!114 &8725784848659130991
 MonoBehaviour:
@@ -112,11 +112,6 @@ MonoBehaviour:
     m_Bits: 512
   isGrounded: 0
   isOnPlatform: 0
-  whatIsLadder:
-    serializedVersion: 2
-    m_Bits: 128
-  canClimbLadder: 0
-  isClimbing: 0
   anim: {fileID: 8725784849652229777}
   respawnPosition: {fileID: 0}
 --- !u!114 &8725784848659130990
