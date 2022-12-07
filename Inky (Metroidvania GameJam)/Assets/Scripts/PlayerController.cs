@@ -21,10 +21,6 @@ public class PlayerController : MonoBehaviour {
     public int extraJumps;
     private int extraJumpsValue;
     public float gravScale;
-    
-    private float jumpTimeCounter;
-    public float jumpTime;
-    private bool isJumping;
 
     // Ground Detection
     public LayerMask whatIsGround; // Unity layer with objects that are ground
@@ -125,27 +121,15 @@ public class PlayerController : MonoBehaviour {
     
     public void Jump(InputAction.CallbackContext ctx) {
 
-        if(ctx.started && isGrounded) {
-            isJumping = true;
-            jumpTimeCounter = jumpTime;
+        if(ctx.performed && isGrounded) {
             rb.velocity = Vector2.up * jumpForce;
-        }
-        /*if(ctx.started && !isGrounded && extraJumpsValue > 0) {
+        } else if(ctx.performed && !isGrounded && extraJumpsValue > 0) {
             rb.velocity = Vector2.up * jumpForce;
             extraJumpsValue--;
-        }*/
-
-        if(ctx.performed && isJumping) {
-            if (jumpTimeCounter > 0) {
-                rb.velocity = Vector2.up * jumpForce;
-                jumpTimeCounter -= Time.deltaTime; 
-            } else {
-                isJumping = false;
-            }
         }
         
         if(ctx.canceled) {
-            isJumping = false;
+            rb.velocity = new Vector2(rb.velocity.x, 0);
         }
     }
     
