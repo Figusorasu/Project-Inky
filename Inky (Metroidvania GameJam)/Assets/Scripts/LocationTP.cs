@@ -6,6 +6,8 @@ public class LocationTP : MonoBehaviour
 {
     public GameObject player;
     public GameObject destination;
+    public Vector2 camMaxPos;
+    public Vector2 camMinPos;
 
     private float des_x;
     private float des_y;
