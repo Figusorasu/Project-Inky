@@ -19,8 +19,12 @@ public class PlayerController : MonoBehaviour {
     public Transform groundCheck; // Use Unity Transform object to detect collision with ground
     public float checkRadius;
     public int extraJumps;
-    public int extraJumpsValue;
+    private int extraJumpsValue;
     public float gravScale;
+    
+    private float jumpTimeCounter;
+    public float jumpTime;
+    private bool isJumping;
 
     // Ground Detection
     public LayerMask whatIsGround; // Unity layer with objects that are ground
@@ -62,8 +66,9 @@ public class PlayerController : MonoBehaviour {
             Flip();
         }
 
-        // Climbing
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, 5, whatIsLadder);
+
+        #region Climbing
+        /*RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, 5, whatIsLadder);
 
         if(hitInfo.collider != null) {
             canClimbLadder = true;
@@ -77,9 +82,10 @@ public class PlayerController : MonoBehaviour {
             rb.gravityScale = 0;
         } else {
             rb.gravityScale = gravScale;
-        }
+        }*/
+        #endregion
 
-        // Ground and interactable objects checking
+        // Ground checking
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         isOnPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsPlatform);
 
@@ -112,26 +118,39 @@ public class PlayerController : MonoBehaviour {
         transform.localScale = Scaler;
     }
 
-    void Move(InputAction.CallbackContext ctx) {
+    public void Move(InputAction.CallbackContext ctx) {
         inputVertical = ctx.ReadValue<Vector2>().y;
         inputHorizontal = ctx.ReadValue<Vector2>().x;
     }
     
-    void Jump(InputAction.CallbackContext ctx) {
-        if(ctx.performed && isGrounded) {
+    public void Jump(InputAction.CallbackContext ctx) {
+
+        if(ctx.started && isGrounded) {
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
             rb.velocity = Vector2.up * jumpForce;
-        } else if(ctx.performed && !isGrounded && extraJumpsValue > 0) {
+        }
+        if(ctx.started && !isGrounded && extraJumpsValue > 0) {
             rb.velocity = Vector2.up * jumpForce;
             extraJumpsValue--;
         }
+
+        if(ctx.performed && isJumping) {
+            if (jumpTimeCounter > 0) {
+                rb.velocity = Vector2.up * jumpForce;
+                jumpTimeCounter -= Time.deltaTime; 
+            } else {
+                isJumping = false;
+            }
+        }
         
-        if(ctx.canceled && rb.velocity.y > 0) {
-            rb.velocity = Vector2.up * (jumpForce * 0.5f);
+        if(ctx.canceled) {
+            isJumping = false;
         }
     }
     
-    void Run(InputAction.CallbackContext ctx) {
-        if(ctx.performed && !isClimbing) {
+    public void Dash(InputAction.CallbackContext ctx) {
+        if(ctx.performed) {
             currentSpeed = speed * 2;
         } else {
             currentSpeed = speed;
