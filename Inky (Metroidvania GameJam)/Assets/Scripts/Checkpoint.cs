@@ -6,11 +6,10 @@ using UnityEngine.InputSystem;
 public class Checkpoint : MonoBehaviour
 {
     public PlayerController player;
-    public Transform respawnPos;
     public Animator anim;
+    public Rigidbody2D checkpoint;
 
     private GameObject[] allCheckpoints;
-
     private bool canInteract;
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -25,7 +24,7 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
-    public void pullLever(InputAction.CallbackContext ctx) {
+    public void Interact(InputAction.CallbackContext ctx) {
         if(ctx.performed && canInteract ) {
             allCheckpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
             
@@ -34,7 +33,8 @@ public class Checkpoint : MonoBehaviour
             }
 
             anim.SetBool("isActive", true);
-            player.respawnPosition = respawnPos;
+            player.respawn_x = checkpoint.position.x;
+            player.respawn_y = checkpoint.position.y;
         } 
     }
 }

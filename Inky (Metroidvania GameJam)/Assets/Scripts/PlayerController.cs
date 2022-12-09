@@ -33,7 +33,8 @@ public class PlayerController : MonoBehaviour {
     public Animator anim;
 
     // Checkpoint system
-    public Transform respawnPosition;
+    public float respawn_x;
+    public float respawn_y;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -57,7 +58,6 @@ public class PlayerController : MonoBehaviour {
         } else if (facingRight == true && rb.velocity.x < 0) {
             Flip();
         }
-
 
         #region Climbing
         /*RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, 5, whatIsLadder);
@@ -138,7 +138,11 @@ public class PlayerController : MonoBehaviour {
         }
     } 
 
-    
+    public void Respawn(InputAction.CallbackContext ctx) {
+        if(ctx.performed) {
+            rb.position = new Vector2(respawn_x, respawn_y);
+        }
+    }
 
 
 }

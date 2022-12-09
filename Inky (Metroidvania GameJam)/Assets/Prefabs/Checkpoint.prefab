@@ -149,9 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d306cf68380b4840b850d5f2ff1085f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  respawnPos: {fileID: 2120542267463503020}
+  player: {fileID: 8725784848659130991, guid: a75fe558f5d31ac4c955f0f2826228f2, type: 3}
   anim: {fileID: 2120542267463503023}
+  checkpoint: {fileID: 2120542267463503018}
 --- !u!114 &2120542267463503016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2120542267463503019}
         m_TargetAssemblyTypeName: Checkpoint, Assembly-CSharp
-        m_MethodName: pullLever
+        m_MethodName: Interact
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
