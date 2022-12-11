@@ -15,8 +15,15 @@ public class Checkpoint : MonoBehaviour
     private GameObject[] allCheckpoints;
     private bool canInteract;
 
-    void Start() {
+    private void Awake() {
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        if(gm.activeCheckPointId == id) {
+            activateCheckpoint();
+        }
+    }
+
+    void Start() {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -33,14 +40,17 @@ public class Checkpoint : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext ctx) {
         if(ctx.performed && canInteract ) {
-            allCheckpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
-            gm.lastCheckPointPos = transform.position;
-            
-            for(int i = 0; i < allCheckpoints.Length; i++) {
-                allCheckpoints[i].GetComponent<Animator>().SetBool("isActive", false);
-            }
-            anim.SetBool("isActive", true);
-            
+            activateCheckpoint();
+        }       
+    }
+
+    void activateCheckpoint() {
+        allCheckpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
+        for(int i = 0; i < allCheckpoints.Length; i++) {
+            allCheckpoints[i].GetComponent<Animator>().SetBool("isActive", false);
         }
+        gm.lastCheckPointPos = transform.position;
+        gm.activeCheckPointId = id;
+        anim.SetBool("isActive", true);
     }
 }

@@ -2101,6 +2101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastCheckPointPos: {x: -6, y: -7}
+  activeCheckPointId: 2
 --- !u!4 &580890641
 Transform:
   m_ObjectHideFlags: 0
