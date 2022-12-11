@@ -297,6 +297,8 @@ GameObject:
   - component: {fileID: 1422743984791770766}
   - component: {fileID: 2970489772105327112}
   - component: {fileID: 7932771257010845681}
+  - component: {fileID: 1442285748507473917}
+  - component: {fileID: 7809889825241567879}
   m_Layer: 0
   m_Name: PatrolEnemy
   m_TagString: Untagged
@@ -335,7 +337,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.14472544}
+  m_Offset: {x: 0, y: -0.26368162}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -346,7 +348,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8085206, y: 0.66466665}
+  m_Size: {x: 0.5121051, y: 0.4267543}
   m_EdgeRadius: 0
 --- !u!114 &2970489772105327112
 MonoBehaviour:
@@ -388,6 +390,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &1442285748507473917
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286016191827086829}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &7809889825241567879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286016191827086829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3532d953511784a860b7e8dba1e1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8441383245782682798
 GameObject:
   m_ObjectHideFlags: 0
