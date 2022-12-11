@@ -5,36 +5,42 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
 
-    // InputSystem / Movement
-    private float inputHorizontal;
-    private float inputVertical;
-    public float speed;
-    private Transform tr;
-    private Rigidbody2D rb; // Use to get player's Rigitbody Unity component in script
-    private bool facingRight = true; 
-    private float currentSpeed;
+    #region Variables
+        [Header("Movement")]
+        public float speed;
 
-    // Jump
-    public float jumpForce;
-    public Transform groundCheck; // Use Unity Transform object to detect collision with ground
-    public float checkRadius;
-    public int extraJumps;
-    private int extraJumpsValue;
+        private float inputHorizontal;
+        private float inputVertical;
+        private float currentSpeed;
+        private Transform tr;
+        private Rigidbody2D rb;
+        private bool facingRight = true; 
+        [Header("Jump")]
 
-    private bool isFalling;
+        public float jumpForce;
+        public int extraJumps;
 
-    // Ground Detection
-    public LayerMask whatIsGround; // Unity layer with objects that are ground
-    public LayerMask whatIsPlatform;
-    public bool isGrounded;
-    public bool isOnPlatform;
+        private int extraJumpsValue;
+        private bool isFalling;
 
-    // Animator
-    public Animator anim;
+        [Space]
+        [Header("Ground Detection")]
+        public Transform groundCheck; // Use Unity Transform object to detect collision with ground
+        public float checkRadius;
+        public LayerMask whatIsGround; // Unity layer with objects that are ground
+        public LayerMask whatIsPlatform;
+        public bool isGrounded;
 
-    // Checkpoint system
-    public float respawn_x;
-    public float respawn_y;
+        [Space]
+        [Header("Animator")]
+        public Animator anim;
+
+        [Space]
+        [Header("Checkpoint System")]
+        public float respawn_x;
+        public float respawn_y;
+
+    #endregion
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -59,27 +65,8 @@ public class PlayerController : MonoBehaviour {
             Flip();
         }
 
-        #region Climbing
-        /*RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, 5, whatIsLadder);
-
-        if(hitInfo.collider != null) {
-            canClimbLadder = true;
-        }
-        else {
-            canClimbLadder = false;
-        }
-
-        if(canClimbLadder && (inputVertical != 0 || !isGrounded)) {
-            rb.velocity = new Vector2(rb.velocity.x, inputVertical * currentSpeed);
-            rb.gravityScale = 0;
-        } else {
-            rb.gravityScale = gravScale;
-        }*/
-        #endregion
-
         // Ground checking
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-        isOnPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsPlatform);
 
         #region ANIMATIONS:
            /* if(rb.velocity.x != 0) {

@@ -15,7 +15,7 @@ public class VerticalPlatform : MonoBehaviour {
     }
 
     void Update() {
-        if(player.isOnPlatform == true && Input.GetKey(KeyCode.S)) {
+        if(/*player.isOnPlatform == true &&*/ Input.GetKey(KeyCode.S)) {
             effector.rotationalOffset = 180f;
         }
         if(Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.W)) {
