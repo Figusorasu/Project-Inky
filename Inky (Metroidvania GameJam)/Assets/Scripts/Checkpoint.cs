@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class Checkpoint : MonoBehaviour
 {
     private GameMaster gm;
+    
+    public int id;
 
     public Animator anim;
     public Rigidbody2D checkpoint;
