@@ -32,14 +32,13 @@ public class Checkpoint : MonoBehaviour
     public void Interact(InputAction.CallbackContext ctx) {
         if(ctx.performed && canInteract ) {
             allCheckpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
+            gm.lastCheckPointPos = transform.position;
             
             for(int i = 0; i < allCheckpoints.Length; i++) {
                 allCheckpoints[i].GetComponent<Animator>().SetBool("isActive", false);
             }
-
             anim.SetBool("isActive", true);
             
-            gm.lastCheckPointPos = transform.position;
-        } 
+        }
     }
 }
