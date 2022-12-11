@@ -8,6 +8,7 @@ TagManager:
   - FakeWalls
   - Checkpoint
   - HiddenLanterns
+  - GM
   layers:
   - Default
   - TransparentFX

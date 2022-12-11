@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
     #region Variables
+        private GameMaster gm;
+
         [Header("Movement")]
         public float speed;
 
@@ -35,17 +38,15 @@ public class PlayerController : MonoBehaviour {
         [Header("Animator")]
         public Animator anim;
 
-        [Space]
-        [Header("Checkpoint System")]
-        public float respawn_x;
-        public float respawn_y;
-
     #endregion
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
         currentSpeed = speed;
+
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        transform.position = gm.lastCheckPointPos;
     }
 
     void FixedUpdate() {
@@ -127,7 +128,7 @@ public class PlayerController : MonoBehaviour {
 
     public void Respawn(InputAction.CallbackContext ctx) {
         if(ctx.performed) {
-            rb.position = new Vector2(respawn_x, respawn_y);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
