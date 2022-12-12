@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - HiddenLanterns
   - GM
+  - Platform
   layers:
   - Default
   - TransparentFX

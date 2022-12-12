@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
 
         private int extraJumpsValue;
         private bool isFalling;
+        private GameObject[] allPlatforms;
 
         [Space]
         [Header("Ground Detection")]
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour {
         public LayerMask whatIsGround; // Unity layer with objects that are ground
         public LayerMask whatIsPlatform;
         public bool isGrounded;
+        public bool isOnPlatform;
 
         [Space]
         [Header("Animator")]
@@ -68,6 +70,7 @@ public class PlayerController : MonoBehaviour {
 
         // Ground checking
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        isOnPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsPlatform);
 
         #region ANIMATIONS:
            /* if(rb.velocity.x != 0) {
@@ -106,8 +109,10 @@ public class PlayerController : MonoBehaviour {
     public void Jump(InputAction.CallbackContext ctx) {
 
         if(ctx.performed && isGrounded) {
+            revertAllPlatforms();
             rb.velocity = Vector2.up * jumpForce;
         } else if(ctx.performed && !isGrounded && extraJumpsValue > 0) {
+            revertAllPlatforms();
             rb.velocity = Vector2.up * jumpForce;
             extraJumpsValue--;
         }
@@ -115,6 +120,13 @@ public class PlayerController : MonoBehaviour {
         if(ctx.canceled && !isFalling) {
             rb.velocity = new Vector2(rb.velocity.x, 0);
             isFalling = true;
+        }
+    }
+
+    private void revertAllPlatforms() {
+        allPlatforms = GameObject.FindGameObjectsWithTag("Platform");
+        for(int i = 0; i < allPlatforms.Length; i++) {
+            allPlatforms[i].GetComponent<PlatformEffector2D>().rotationalOffset = 0;
         }
     }
     
