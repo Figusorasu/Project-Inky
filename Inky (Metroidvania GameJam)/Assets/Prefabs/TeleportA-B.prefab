@@ -49,8 +49,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 8725784848659130984, guid: a75fe558f5d31ac4c955f0f2826228f2, type: 3}
   destination: {fileID: 3074132961581089585}
-  camMaxPos: {x: 0, y: 0}
-  camMinPos: {x: 0, y: 0}
 --- !u!61 &3074132961137512089
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -111,7 +109,7 @@ GameObject:
   m_Layer: 0
   m_Name: TeleportPosB
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -200,8 +198,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   destination: {fileID: 3074132961342176327}
-  camMaxPos: {x: 0, y: 0}
-  camMinPos: {x: 0, y: 0}
 --- !u!61 &3074132961490010026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -262,7 +258,7 @@ GameObject:
   m_Layer: 0
   m_Name: TeleportPosA
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

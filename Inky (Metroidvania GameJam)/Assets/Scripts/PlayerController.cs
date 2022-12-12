@@ -74,28 +74,6 @@ public class PlayerController : MonoBehaviour {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         isOnPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsPlatform);
 
-        #region ANIMATIONS:
-           /* if(rb.velocity.x != 0) {
-                anim.SetBool("IsMoving", true);
-            } else {
-                anim.SetBool("IsMoving", false);
-            }
-
-            if(rb.velocity.y > 0) {
-                anim.SetBool("Jump", true);
-                anim.SetBool("Fall", false);
-            } else if(rb.velocity.y < 0) {
-                anim.SetBool("Fall", true);
-                anim.SetBool("Jump", false);
-            }
-            
-            if(isGrounded || inputHorizontal == 0) { 
-                anim.SetBool("Fall", false); 
-                anim.SetBool("Jump", false);
-            }*/
-        #endregion
-    }
-
     void Flip() {
         facingRight = !facingRight;
         Vector3 Scaler = transform.localScale;
