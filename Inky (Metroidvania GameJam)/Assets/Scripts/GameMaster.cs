@@ -11,7 +11,6 @@ public class GameMaster : MonoBehaviour
 
     public bool DubbleJumpUnlocked = false;
     public bool DashUnlocked = false;
-    public bool LightUnlocked = false;
 
     private void Awake() {
         if(instance == null) {
