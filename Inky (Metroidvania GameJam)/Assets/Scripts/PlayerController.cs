@@ -63,12 +63,6 @@ public class PlayerController : MonoBehaviour {
             isFalling = false;
         }
 
-        if(gm.LightUnlocked) {
-            playerLight.SetActive(true);
-        } else {
-            playerLight.SetActive(false);
-        }
-
         // Flip Player
         if(facingRight == false && rb.velocity.x > 0) {
             Flip();

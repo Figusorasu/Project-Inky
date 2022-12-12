@@ -99,9 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 40
+  extraJumps: 1
   groundCheck: {fileID: 8725784849704667247}
   checkRadius: 0.15
-  extraJumps: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 768
@@ -111,8 +111,7 @@ MonoBehaviour:
   isGrounded: 0
   isOnPlatform: 0
   anim: {fileID: 8725784849652229777}
-  respawn_x: -6
-  respawn_y: -7
+  playerLight: {fileID: 0}
 --- !u!114 &8725784848659130990
 MonoBehaviour:
   m_ObjectHideFlags: 0
