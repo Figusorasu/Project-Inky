@@ -73,7 +73,8 @@ public class PlayerController : MonoBehaviour {
         // Ground checking
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         isOnPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsPlatform);
-
+    }
+    
     void Flip() {
         facingRight = !facingRight;
         Vector3 Scaler = transform.localScale;
@@ -124,5 +125,5 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-
+    
 }
