@@ -295,8 +295,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4452658750616164216}
   - component: {fileID: 1422743984791770766}
-  - component: {fileID: 2970489772105327112}
   - component: {fileID: 7932771257010845681}
+  - component: {fileID: 2970489772105327112}
   - component: {fileID: 1442285748507473917}
   - component: {fileID: 7809889825241567879}
   - component: {fileID: 6480424436458718441}
@@ -351,25 +351,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5121051, y: 0.4267543}
   m_EdgeRadius: 0
---- !u!114 &2970489772105327112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5286016191827086829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d959b95e6181044cb98977fee196457, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rayLenght: 1
-  groundDetection: {fileID: 1013212382330676155}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
-  wallDetection: {fileID: 8344144832781200624}
 --- !u!50 &7932771257010845681
 Rigidbody2D:
   serializedVersion: 4
@@ -391,6 +372,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2970489772105327112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286016191827086829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d959b95e6181044cb98977fee196457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rayLenght: 1
+  groundDetection: {fileID: 1013212382330676155}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 768
+  wallDetection: {fileID: 8344144832781200624}
 --- !u!58 &1442285748507473917
 CircleCollider2D:
   m_ObjectHideFlags: 0
