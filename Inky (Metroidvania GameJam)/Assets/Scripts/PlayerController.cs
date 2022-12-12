@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour {
         [Header("Animator")]
         public Animator anim;
 
+        public GameObject playerLight;
+
     #endregion
 
     void Start() {
@@ -59,6 +61,12 @@ public class PlayerController : MonoBehaviour {
         if(isGrounded && gm.DubbleJumpUnlocked) {
             extraJumpsValue = extraJumps;
             isFalling = false;
+        }
+
+        if(gm.LightUnlocked) {
+            playerLight.SetActive(true);
+        } else {
+            playerLight.SetActive(false);
         }
 
         // Flip Player
