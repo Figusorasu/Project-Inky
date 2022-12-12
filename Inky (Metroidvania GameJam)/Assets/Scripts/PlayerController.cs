@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour {
         rb.velocity = new Vector2(inputHorizontal * currentSpeed, rb.velocity.y);
      
         // Renew jumps
-        if(isGrounded) {
+        if(isGrounded && gm.DubbleJumpUnlocked) {
             extraJumpsValue = extraJumps;
             isFalling = false;
         }

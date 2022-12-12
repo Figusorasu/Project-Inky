@@ -9,6 +9,10 @@ public class GameMaster : MonoBehaviour
     public Vector2 lastCheckPointPos;
     public int activeCheckPointId;
 
+    public bool DubbleJumpUnlocked = false;
+    public bool DashUnlocked = false;
+    public bool LightUnlocked = false;
+
     private void Awake() {
         if(instance == null) {
             instance = this;
