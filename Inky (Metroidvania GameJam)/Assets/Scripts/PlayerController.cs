@@ -58,10 +58,13 @@ public class PlayerController : MonoBehaviour {
         rb.velocity = new Vector2(inputHorizontal * currentSpeed, rb.velocity.y);
      
         // Renew jumps
-        if(isGrounded /*&& gm.DubbleJumpUnlocked*/) {
-            extraJumpsValue = extraJumps;
+        if(isGrounded) {
             isFalling = false;
+            if(gm.DubbleJumpUnlocked) {
+                extraJumpsValue = extraJumps;
+            }
         }
+        
 
         // Flip Player
         if(facingRight == false && rb.velocity.x > 0) {
@@ -111,14 +114,6 @@ public class PlayerController : MonoBehaviour {
         }
     }
     
-    public void Dash(InputAction.CallbackContext ctx) {
-        if(ctx.performed) {
-            currentSpeed = speed * 2;
-        } else {
-            currentSpeed = speed;
-        }
-    } 
-
     public void Respawn(InputAction.CallbackContext ctx) {
         if(ctx.performed) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

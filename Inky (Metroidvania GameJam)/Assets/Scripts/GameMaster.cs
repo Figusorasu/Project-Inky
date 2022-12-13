@@ -10,7 +10,6 @@ public class GameMaster : MonoBehaviour
     public int activeCheckPointId;
 
     public bool DubbleJumpUnlocked = false;
-    public bool DashUnlocked = false;
 
     private void Awake() {
         if(instance == null) {

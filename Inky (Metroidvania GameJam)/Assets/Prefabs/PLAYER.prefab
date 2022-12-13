@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8725784848659130986}
   - component: {fileID: 8725784848659130988}
-  - component: {fileID: 8725784848659130989}
+  - component: {fileID: 7101881225812550866}
   - component: {fileID: 8725784848659130991}
   - component: {fileID: 8725784848659130990}
   m_Layer: 0
@@ -53,13 +53,13 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 6
   m_Material: {fileID: 6200000, guid: d20e8ab73ce3c61468406a2750fa62c6, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &8725784848659130989
+--- !u!61 &7101881225812550866
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,23 +68,23 @@ BoxCollider2D:
   m_GameObject: {fileID: 8725784848659130984}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d20e8ab73ce3c61468406a2750fa62c6, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0068798065, y: -0.24852753}
+  m_Offset: {x: 0, y: -0.023454815}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5462761, y: 0.69867706}
-  m_EdgeRadius: 0.1
+  m_Size: {x: 0.94466245, y: 1.3428018}
+  m_EdgeRadius: 0
 --- !u!114 &8725784848659130991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 40
+  jumpForce: 30
   extraJumps: 1
   groundCheck: {fileID: 8725784849704667247}
   checkRadius: 0.15
@@ -213,22 +213,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: da8bdbfd-7608-45c4-b38f-4824ddcffe6e
     m_ActionName: Player/Jump[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8725784848659130991}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: Dash
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: cb770785-d727-48ea-9227-e7ded0d918c7
-    m_ActionName: Player/Run[/Keyboard/shift,/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: aeb5910d-1e23-4cdf-a279-dd801228f453

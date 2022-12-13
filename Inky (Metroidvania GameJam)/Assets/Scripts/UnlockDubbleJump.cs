@@ -10,15 +10,19 @@ public class UnlockDubbleJump : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
 
         if(gm.DubbleJumpUnlocked) {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")) {
+            Debug.Log("kurwa skok");
             gm.DubbleJumpUnlocked = true;
+            Debug.Log("kurwa podwójny skok");
+            Destroy(this.gameObject);
+            Debug.Log("jeb");
         }
 
-        Destroy(this);
+        
     }
 }
