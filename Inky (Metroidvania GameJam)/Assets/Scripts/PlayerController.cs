@@ -55,7 +55,9 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate() {
         // Movement
-        rb.velocity = new Vector2(inputHorizontal * currentSpeed, rb.velocity.y);
+        if(!gm.isPaused) {
+            rb.velocity = new Vector2(inputHorizontal * currentSpeed, rb.velocity.y);
+        }
         
         // Renew jumps
         if(isGrounded) {
@@ -91,17 +93,18 @@ public class PlayerController : MonoBehaviour {
     }
     
     public void Jump(InputAction.CallbackContext ctx) {
-
-        if(ctx.performed && isGrounded) {
-            rb.velocity = Vector2.up * jumpForce;
-        } else if(ctx.performed && !isGrounded && extraJumpsValue > 0) {
-            rb.velocity = Vector2.up * jumpForce;
-            extraJumpsValue--;
-        }
-        
-        if(ctx.canceled && !isFalling) {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-            isFalling = true;
+        if(!gm.isPaused) {
+            if(ctx.performed && isGrounded) {
+                rb.velocity = Vector2.up * jumpForce;
+            } else if(ctx.performed && !isGrounded && extraJumpsValue > 0) {
+                rb.velocity = Vector2.up * jumpForce;
+                extraJumpsValue--;
+            }
+            
+            if(ctx.canceled && !isFalling) {
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                isFalling = true;
+            }
         }
     }
 
