@@ -10,6 +10,7 @@ TagManager:
   - HiddenLanterns
   - GM
   - Platform
+  - Menu
   layers:
   - Default
   - TransparentFX

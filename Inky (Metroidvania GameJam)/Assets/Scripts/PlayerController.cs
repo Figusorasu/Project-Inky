@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate() {
         // Movement
         rb.velocity = new Vector2(inputHorizontal * currentSpeed, rb.velocity.y);
-     
+        
         // Renew jumps
         if(isGrounded) {
             isFalling = false;
@@ -93,10 +93,8 @@ public class PlayerController : MonoBehaviour {
     public void Jump(InputAction.CallbackContext ctx) {
 
         if(ctx.performed && isGrounded) {
-            revertAllPlatforms();
             rb.velocity = Vector2.up * jumpForce;
         } else if(ctx.performed && !isGrounded && extraJumpsValue > 0) {
-            revertAllPlatforms();
             rb.velocity = Vector2.up * jumpForce;
             extraJumpsValue--;
         }
@@ -107,13 +105,6 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void revertAllPlatforms() {
-        allPlatforms = GameObject.FindGameObjectsWithTag("Platform");
-        for(int i = 0; i < allPlatforms.Length; i++) {
-            allPlatforms[i].GetComponent<PlatformEffector2D>().rotationalOffset = 0;
-        }
-    }
-    
     public void Respawn(InputAction.CallbackContext ctx) {
         if(ctx.performed) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
