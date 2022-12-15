@@ -24,20 +24,14 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")) {
-            canInteract = true;
+            activateCheckpoint();
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if(other.CompareTag("Player")) {
-            canInteract = false;
-        }
-    }
-
-    public void Interact(InputAction.CallbackContext ctx) {
-        if(ctx.performed && canInteract ) {
             activateCheckpoint();
-        }       
+        }
     }
 
     void activateCheckpoint() {
