@@ -11,7 +11,7 @@ public class GameMaster : MonoBehaviour
 
     public bool DubbleJumpUnlocked = false;
 
-    public bool isPaused = true;
+    public bool isPaused = false;
 
     private void Awake() {
         if(instance == null) {
