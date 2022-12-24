@@ -84,7 +84,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.66447264, y: 1.1410666}
-  m_EdgeRadius: 0.1
+  m_EdgeRadius: 0
 --- !u!114 &8725784848659130991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,8 +110,8 @@ MonoBehaviour:
     m_Bits: 512
   isGrounded: 0
   isOnPlatform: 0
-  anim: {fileID: 8725784849652229777}
-  playerLight: {fileID: 0}
+  anim: {fileID: 0}
+  playerLight: {fileID: 8725784849333395606}
 --- !u!114 &8725784848659130990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,50 +154,6 @@ MonoBehaviour:
     m_ActionId: f72d1ec5-e3a9-4085-9e83-f4095b443ace
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: dde73685-7bf9-4819-94da-7da658400c9d
-    m_ActionName: Player/Fire[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: bc7aac69-2ad7-4aec-9b57-91c02ac1620b
-    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a7c9b4c6-4a18-4910-bb81-2296778955be
-    m_ActionName: UI/Submit[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0322fad1-f7f9-424b-abe1-969b4cb1a712
-    m_ActionName: UI/Cancel[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e6fc9fe0-2678-44e6-a693-00482fcb7845
-    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 34b41aaf-48ec-41fe-8619-a18b4905e4bf
-    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 40c7c15d-3139-4e44-8280-27617915952c
-    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0fb954ac-2fb0-44c8-8eb6-67e9f89623a6
-    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 51e20b02-725a-4891-ad39-981e65ba3d45
-    m_ActionName: UI/RightClick[/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0cc5efe5-898f-403d-a40d-f7b385eb6661
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 54462a08-45d4-4085-adf7-73c36b1f9545
-    m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8725784848659130991}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
@@ -233,6 +189,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 091b5577-5443-405f-9e2c-61d799dde209
     m_ActionName: Player/RespawnDebug[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: edf567cc-0d2c-4e9a-a218-f5e20b7a8725
+    m_ActionName: Player/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -443,7 +403,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8725784849652229790}
   - component: {fileID: 8725784849652229776}
-  - component: {fileID: 8725784849652229777}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -461,7 +420,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.1111, z: 0}
   m_LocalScale: {x: 1, y: 1.6983289, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8725784848926598475}
   m_Father: {fileID: 8725784848659130986}
@@ -519,26 +478,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8725784849652229777
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8725784849652229791}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 308107f845ab3b348b8ac6616a494db6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8725784849704667244
 GameObject:
   m_ObjectHideFlags: 0

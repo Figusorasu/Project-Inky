@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour {
 
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         transform.position = gm.lastCheckPointPos;
+        anim.SetBool("isDead", false);
     }
 
     void FixedUpdate() {
